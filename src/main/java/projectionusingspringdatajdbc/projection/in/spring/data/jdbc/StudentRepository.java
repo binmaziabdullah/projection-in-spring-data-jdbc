@@ -20,6 +20,6 @@ public interface StudentRepository extends CrudRepository<Student,Long> {
     and we can use "using" clause if we have same column in both the
     table(we have same table add_id in both the table)*/
 
-    @Query(value = "select s.id as id, s.name as name , a.city as city, a.state as state, a.country as country from Student s inner join address a using(add_id)")
+    @Query(value = "select s.id as id, s.name as name ,a.add_id as add_id, a.city as city, a.state as state, a.country as country from Student s inner join address a using(add_id)")
     List<StudentProjection> getStudentAndAddress();
 }

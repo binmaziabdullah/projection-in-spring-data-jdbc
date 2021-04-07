@@ -21,12 +21,12 @@ public class MainController {
         return "saved";
     }
 
-    @GetMapping("/getStudent")
+    @GetMapping("/getStudentByNameAndId")
     public List<StudentProjection> getStudents(){
        return studentRepository.getStudentByNameANId();
     }
 
-    @GetMapping("/getStudentAdd")
+    @GetMapping("/getStudentAndAddress")
     public List<StudentProjection> getStudentsAndAddress(){
         return studentRepository.getStudentAndAddress();
     }
@@ -38,7 +38,7 @@ public class MainController {
         return "saved";
     }
 
-    @GetMapping("/getAddress")
+    @GetMapping("/getAddressByCityAndState")
     public List<AddressProjection> getAddress(){
         return addressRepository.findAddressByCityAndState();
     }
