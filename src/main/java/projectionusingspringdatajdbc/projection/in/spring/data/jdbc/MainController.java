@@ -9,12 +9,16 @@ import java.util.List;
 public class MainController {
 
     @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
     @Autowired
-    private AddressRepository addressRepository;
+    private final AddressRepository addressRepository;
 
-    //create student
+    public MainController(StudentRepository studentRepository, AddressRepository addressRepository) {
+        this.studentRepository = studentRepository;
+        this.addressRepository = addressRepository;
+    }
+
     @PostMapping("/addStudent")
     public String addStudent(@RequestBody Student student){
         studentRepository.save(student);
