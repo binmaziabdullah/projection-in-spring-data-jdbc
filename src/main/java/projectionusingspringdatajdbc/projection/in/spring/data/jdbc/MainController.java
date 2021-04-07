@@ -23,7 +23,12 @@ public class MainController {
 
     @GetMapping("/getStudent")
     public List<StudentProjection> getStudents(){
-       return studentRepository.getStudentByNameANdAddId();
+       return studentRepository.getStudentByNameANId();
+    }
+
+    @GetMapping("/getStudentAdd")
+    public List<StudentProjection> getStudentsAndAddress(){
+        return studentRepository.getStudentAndAddress();
     }
 
 

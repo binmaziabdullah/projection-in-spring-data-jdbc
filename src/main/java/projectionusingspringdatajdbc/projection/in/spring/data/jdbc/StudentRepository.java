@@ -9,7 +9,12 @@ import java.util.List;
 @Repository
 public interface StudentRepository extends CrudRepository<Student,Long> {
 
-    @Query(value = "select s.name as name , a.name from student s")
-    //@Query(value = "SELECT s.name as name, s.Address.id FROM Student s")
-    List<StudentProjection> getStudentByNameANdAddId();
+    @Query(value = "select s.name as name , s.id as id from student s")
+    List<StudentProjection> getStudentByNameANId();
+
+    @Query(value = "select s.id as id, s.name as name , " +
+            "a.city as city ,a.state as state,a.country as country " +
+            "from student s " +
+            "inner join address a on s.add_id = a.add_id")
+    List<StudentProjection> getStudentAndAddress();
 }
